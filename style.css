@@ -1,0 +1,78 @@
+body
+{
+    overflow-y:hidden;
+    overflow-x:hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.cols
+{
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    margin: 0 auto;
+    
+}
+
+.bors
+{
+    height: 100%;
+    width: 4px;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+
+
+.cols img
+{
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter:brightness(30%);
+    
+}
+
+.subs
+{
+    position: absolute;
+    width: 20%;
+    min-height: 5%;
+    background-color: white;
+    border: 4px black solid;
+    visibility:hidden;
+    top:70%;
+    margin: auto;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    vertical-align: middle;
+    line-height: 150%;
+    text-decoration: none;
+    color: black;
+}
+
+#sub1{left:5%;}
+#sub2{left:22%;}
+#sub3{left:39%;}
+#sub4{left:55%;}
+#sub5{left:75%;}
+
+#col1{left:0%;}
+#col2{left:20%;}
+#col3{left:40%;}
+#col4{left:60%;}
+#col5{left:80%;}
+
+#bor1{left:20%;}
+#bor2{left:40%;}
+#bor3{left:60%;}
+#bor4{left:80%;}
+
+#col2:hover{ filter:brightness(333%); cursor: pointer;}
+#col3:hover{ filter:brightness(333%); cursor: pointer;}
+#col4:hover{ filter:brightness(333%); cursor: pointer;}
+#col5:hover{ filter:brightness(333%); cursor: pointer;}

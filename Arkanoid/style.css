@@ -1,0 +1,58 @@
+body
+{
+    overflow:hidden;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgb(157, 240, 255), white, rgb(219, 71, 2));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#i1
+    {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        height: 100px;
+        width: 100px;
+    }
+
+#i1 img
+    {
+        height: 100px;
+        width: 100px; 
+    }
+
+#a1
+    {
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+        height: 40px;
+        width: 400px;
+        border: black 3px solid;
+        border-bottom-left-radius:40px;
+        border-bottom-right-radius:40px;
+        background-color:rgb(146, 146, 155);
+    }
+
+#menutop
+{
+    height:50px;
+    width: 100%;
+    background-color:dimgrey;
+    border-bottom:black 3px solid;
+}
+
+.menuelement
+{
+    min-width: 50%;
+    text-align: center;
+    float: left;
+    font-size: 40px;
+    font-family: fantasy;
+    color: white;
+}
+

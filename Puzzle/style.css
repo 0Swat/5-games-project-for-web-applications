@@ -1,0 +1,70 @@
+div
+    {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border:black 1px solid;
+    }
+
+    div img 
+    {
+        width: 100px;
+        height: 100px;
+    }
+
+    #mieszajbutton
+    {
+        position:absolute;
+        left:300px;
+        transform: translate(-50%, -50%);
+    }
+
+    #restartbutton
+    {
+        position:absolute;
+        left:60%;
+        transform: translate(-50%, -50%);
+    }
+
+#pomoc
+    {
+        position: absolute;
+        left:60%;
+        top:400px;
+        transform: translate(-200px, -200px);
+        width:400px;
+        height:400px;
+    }
+
+.button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #e6bb00;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        top: 100px;
+      }
+      
+.button:hover {background-color: #b49300}
+      
+.button:active {
+        background-color: #b49300;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-image: url('images/tlo.jpg');
+}

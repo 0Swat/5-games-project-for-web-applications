@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Puzzle </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+    <input class="button" id="mieszajbutton" type="button" value="Mieszaj" onclick="Mieszaj()">
+    <input class="button" id="restartbutton" type="button" value="Restart" onclick="Restart()">  
+
+<script>
+
+    var num=4, newdiv, divIdName;
+
+    for(let i=0; i<num; i++)
+    {
+        for(let j=0; j<num; j++)
+        {
+            newdiv=document.createElement('div');
+            divIdName='a' + i + j;
+            newdiv.setAttribute('id', divIdName);
+            newdiv.style.top = 200 + 100*i + "px";
+            newdiv.style.left = 100 + 100*j + "px";
+            if(i*j!=9)
+            {
+                newdiv.innerHTML="<img src='images/slice_" + i + "_" + j + ".jpg'>";
+            }
+            newdiv.addEventListener('click', function(){ Graj(this); });
+            document.body.appendChild(newdiv);
+        }
+    }
+
+    let TabDiv = document.querySelectorAll('div');
+    let TabPos=[];
+
+    for(let i=0; i<16; i++)
+    {
+        TabPos[i]=[];
+    }
+
+    for(let i=0; i<16; i++)
+    {
+        TabPos[i][0]=TabDiv[i].style.left;
+        TabPos[i][1]=TabDiv[i].style.top;
+        TabPos[i][2]=0;
+        console.log(TabPos[i][0]);
+    }
+
+
+</script>
+
+    <div id="pomoc">
+        <img style="width:400px; height:400px;" src="images/main.jpg">
+    </div>
+
+</body>
+
+</html>

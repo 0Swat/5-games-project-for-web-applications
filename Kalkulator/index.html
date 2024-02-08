@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Kalkuklator </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <input type="range" min="1" max="99" class="slider" id="myRange1">
+	<input type="range" min="1" max="70" class="slider" id="myRange2">
+	<input type="range" min="1" max="99" class="slider" id="myRange3">
+	<input type="range" min="1" max="80" class="slider" id="myRange4">
+	<div class="slidertext">Szerokość dużego kalkulatora</div>
+	<div class="slidertext">Wysokość dużego kalkulatora</div>
+	<div class="slidertext">Szerokość małego kalkulatora</div>
+	<div class="slidertext">Wysokość małego kalkulatora</div>
+
+    <div id="divmain">
+    <table id="tablemain">
+		<tr>
+			<td colspan="4"><form name="form"><input id="dzialanie" name="dzial" /></form></td>
+		</tr>
+        <tr>
+			<td><input type="button" value="M+" class="memory" onclick ="dodajm()" /></td>
+			<td><input type="button" value="M-" class="memory" onclick="odejmijm()" /></td>
+            <td><input type="button" value="MR" class="memory" onclick="memory()" /></td>
+            <td><input type="button" value="÷" class="znaki" onclick="wstaw('/')" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" class="przyciski" onclick="wstaw(7)" /></td>
+            <td><input type="button" value="8" class="przyciski" onclick="wstaw(8)" /></td>
+			<td><input type="button" value="9" class="przyciski" onclick="wstaw(9)" /></td>
+			<td><input type="button" value="X" class="znaki" onclick="wstaw('*')" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" class="przyciski" onclick="wstaw(4)" /></td>
+			<td><input type="button" value="5" class="przyciski" onclick="wstaw(5)" /></td>
+			<td><input type="button" value="6" class="przyciski" onclick="wstaw(6)" /></td>
+			<td><input type="button" value="-" class="znaki" onclick="wstaw('-')" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" class="przyciski" onclick="wstaw(1)" /></td>
+			<td><input type="button" value="2" class="przyciski" onclick="wstaw(2)" /></td>
+			<td><input type="button" value="3" class="przyciski" onclick="wstaw(3)" /></td>
+			<td><input type="button" value="+" class="znaki" onclick="wstaw('+')" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="C" class="przyciski" onclick="czysc()" /></td>
+			<td><input type="button" value="0" class="przyciski" onclick="wstaw(0)" /></td>
+			<td><input type="button" value="." class="przyciski" onclick="wstaw('.')" /></td>
+			<td><input type="button" value="=" id="rownasie" onclick="oblicz()" /></td>
+		</tr>
+		<tr>
+			<td colspan="4"><form name="form2"><input id="wynik" name="wyn" /></form></td>
+		</tr>
+	</table>
+    </div>
+
+    <div id="div2">
+        <table id="table2">
+            <tr>
+                <td colspan="2"><form name="form3"><input class="ekran" id="liczbax" name="liczx" /></form></td>
+                <td colspan="2"><form name="form4"><input class="ekran" id="liczbay" name="liczy" /></form></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="&#8730x" class="matma" onclick="Pierwiastek()" /></td>
+                <td><input type="button" value="x!" class="matma" onclick="Silnia()" /></td>
+                <td><input type="button" value="x^y" class="matma" onclick="Potega()" /></td>
+                <td><input type="button" value="C" class="memory" onclick="czysc2()" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><form name="form5"><input class="ekran" id="wynik_2" name="wyn_2" /></form></td>
+            </tr>
+        </table>
+    </div>
+    
+    
+
+</body>
+
+<script type="text/javascript" src="script.js"></script>
+
+</html>

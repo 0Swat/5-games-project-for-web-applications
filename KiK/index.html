@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Kółko i krzyżyk </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <section>
+        <h1 class="nazwa">Kółko i Krzyżyk</h1>
+        <div class="kwadrat">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
+        </div>
+        <h2 class="status"></h2>
+        <button class="restart">Restart gry</button>
+    </section>
+    
+    <script >const statusDisplay = document.querySelector('.status');
+
+        let gameActive = true;
+        let Gracz = "X";
+        let gameState = ["", "", "", "", "", "", "", "", ""];
+        
+        const winningMessage = () => `Wygrał ${Gracz}!`;
+        const drawMessage = () => `Remis!`;
+        const kolejność = () => `Ruch ${Gracz}`;
+        
+        statusDisplay.innerHTML = kolejność();
+        
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+        
+        function wybór(clickedCell, clickedCellIndex) {
+            gameState[clickedCellIndex] = Gracz;
+            clickedCell.innerHTML = Gracz;
+            if(Gracz=='X')
+            {
+                clickedCell.style.color = '#da0000'; 
+            }
+            if(Gracz=='O')
+            {
+                clickedCell.style.color = '#008cff';
+            }
+        }
+        
+        function zmiana() {
+            Gracz = Gracz === "X" ? "O" : "X";
+            statusDisplay.innerHTML = kolejność();
+        }
+        
+        function handleResultValidation() {
+            let roundWon = false;
+            for (let i = 0; i <= 7; i++) {
+                const winCondition = winningConditions[i];
+                let a = gameState[winCondition[0]];
+                let b = gameState[winCondition[1]];
+                let c = gameState[winCondition[2]];
+                if (a === '' || b === '' || c === '') {
+                    continue;
+                }
+                if (a === b && b === c) {
+                    roundWon = true;
+                    break
+                }
+            }
+        
+            if (roundWon) {
+                statusDisplay.innerHTML = winningMessage();
+                gameActive = false;
+                return;
+            }
+        
+            let roundDraw = !gameState.includes("");
+            if (roundDraw) {
+                statusDisplay.innerHTML = drawMessage();
+                gameActive = false;
+                return;
+            }
+        
+            zmiana();
+        }
+        
+        function handleCellClick(clickedCellEvent) {
+            const clickedCell = clickedCellEvent.target;
+            const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+        
+            if (gameState[clickedCellIndex] !== "" || !gameActive) {
+                return;
+            }
+        
+            wybór(clickedCell, clickedCellIndex);
+            handleResultValidation();
+        }
+        
+        function handleRestartGame() {
+            gameActive = true;
+            Gracz = "X";
+            gameState = ["", "", "", "", "", "", "", "", ""];
+            statusDisplay.innerHTML = kolejność();
+            document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+        }
+        
+        document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+        document.querySelector('.restart').addEventListener('click', handleRestartGame);
+    </script>
+
+</body>
+
+</html>

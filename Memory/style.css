@@ -1,0 +1,84 @@
+div{
+    position: absolute;
+}
+.mini{
+    border:transparent 2px solid;
+    width:98px;
+    height:98px;
+}
+.mini:hover{
+    cursor: pointer;
+    border:rgb(255, 0, 0) 2px solid;
+}
+.mini img{
+    width: 98px;
+    height: 98px;
+}
+
+.button{
+    width:200px;
+    height:60px;
+    font-size:30px;
+    font-family: Verdana;
+    border:solid 2px black;
+}
+.button:hover{
+    cursor:pointer;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-image: linear-gradient(rgb(0, 0, 0),  white, rgb(0, 0, 0));
+    backdrop-filter: blur(5px);
+}
+
+#memorymain
+{
+    display: table;
+    margin: 0 auto;
+    position: absolute;
+    transform: translateX(-450px);
+    left: 50%;
+    top: 70px;
+}
+
+.button {
+    position: absolute;
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #383838;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    
+  }
+  
+  .button:hover {background-color: #292929}
+  
+.button:active {
+    background-color: #292929;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#b1
+{
+    left: 200px;
+}
+
+#b2
+{
+    left: 500px;
+}

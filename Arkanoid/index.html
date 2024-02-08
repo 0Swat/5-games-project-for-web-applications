@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Arkanoid </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+
+    <div id="menutop">
+        <div class="menuelement" id="wynik"> Ilość odbić: 0</div>
+        <div class="menuelement" id="rekord"> Rekord: 0</div>
+    </div>
+    <div id="i1"><img src="images/kolko2.png" onclick="StartMove()"></div>
+    <div id="a1"></div>
+
+</body>
+
+<script>
+
+let id1, xx;
+
+        function StartMove()
+        {
+            i1.innerHTML = '<img src="images/kolko.png" onclick="StartMove()">';
+            xx=document.documentElement.clientWidth*0.5;
+            yy=document.documentElement.clientHeight*0.5-183;
+            i1.style.left==xx+'px';
+            i1.style.top==yy+'px';
+            id1=setInterval("gs(), 30");
+        }
+
+        let x=200;
+        let k=-1, l=-1, s=3;
+        let odbicia=0;
+        let rekord=0;
+
+        
+
+        function gs()
+        {
+            let ballright = i1.offsetRight;
+            let ballleft = i1.offsetLeft;
+            let balltop = i1.offsetTop;
+            let floorleft = a1.offsetLeft;
+            let floorright = a1.offsetRight;
+            let floortop = a1.offsetTop;
+
+            xx-=s*k; yy-=s*l;
+            if(xx<100){k=-1;}
+            if(xx>document.documentElement.clientWidth-50){k=1;}
+            if(yy<100){l=-1;}
+            if(yy>document.documentElement.clientHeight-50){l=1;}
+
+            if( (l==-1) && (k==-1) && (balltop+50>floortop-20) && (ballleft+50>floorleft-200) && (ballleft-50<floorleft+200) ) { k=-1; l=1; odbicia+=1; s++;}
+            if( (l==-1) && (k==1) && (balltop+50>floortop-20) && (ballleft+50>floorleft-200) && (ballleft-50<floorleft+200) ) { k=1; l=1; odbicia+=1; s++;}
+            if( (l==1) && (k==-1) && (balltop+50>floortop-20) && (ballleft+50>floorleft-200) && (ballleft-50<floorleft+200) ) { }
+            if( (l==1) && (k==1) && (balltop+50>floortop-20) && (ballleft+50>floorleft-200) && (ballleft-50<floorleft+200) ) { }
+
+            if(balltop-50>floortop-10) 
+            { 
+                clearInterval(id1);
+                xx=document.documentElement.clientWidth*0.5;
+                yy=document.documentElement.clientHeight*0.5-183;
+                i1.style.left==xx+'px';
+                i1.style.top==yy+'px';
+                odbicia=0;
+                k=-1;
+                l=-1;
+                s=3;
+                i1.innerHTML = '<img src="images/kolko2.png" onclick="StartMove()">';
+            }
+
+            i1.style.left=xx+'px';
+            i1.style.top=yy+'px';
+            document.getElementById('rekord').innerHTML = "Rekord: " + rekord;
+            document.getElementById('wynik').innerHTML = "Ilość odbić: " + odbicia;
+            if(rekord<odbicia)
+            { 
+                rekord=odbicia;
+                document.getElementById('rekord').innerHTML = "Rekord: " + rekord; 
+            }
+        }
+
+    document.addEventListener('keydown', keyDown);
+    let z=a1.offsetLeft;
+    function keyDown(e)
+    {
+        let stepSize=40;
+        if(e.keyCode === 37) if(z>200) z-=stepSize; else z=200;
+        if(e.keyCode === 39) if(z<document.documentElement.clientWidth-200) z+=stepSize; else z=document.documentElement.clientWidth-200;
+        a1.style.left=z+'px';
+    }
+</script>
+
+</html>
